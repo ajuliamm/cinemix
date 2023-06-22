@@ -6,6 +6,7 @@ import MovieScreen from './pages/MovieScreen/MovieScreen';
 
 
 function App() {
+ 
   return (
     <Router>
         <Routes>
