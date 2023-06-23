@@ -6,7 +6,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 const SectionMovies = ({movies, title}) => {
 
     // const [data, setdata] = useState([]);
-    const carousel = useRef(null)
+    const carousel = useRef(null);
 
     // useEffect(()=>{
     //     const array = [1,2,3,4,5,6,7,8,9,10,'a','a','a','a','a','a','a','a','a','a','a','a',,'a','a','a','a'];
@@ -34,7 +34,7 @@ const SectionMovies = ({movies, title}) => {
     //     getMovies(topRatedUrl)
 
     // },[apiKey,urlMovies])
-    
+ 
 
     const handleLeftClick = (e)=>{
         e.preventDefault();
@@ -55,7 +55,7 @@ const SectionMovies = ({movies, title}) => {
             <SectionCards ref={carousel}>
               {movies.length === 0 && <p>Carregando...</p>}
                 {movies.length>0 && movies.map(movie=> (
-                    <CardMovie movie={movie} key={movie.id}/>
+                    <CardMovie movie={movie} key={movie.id} />
                     //o flex para colocar um elemento ao lado do outro, ele tenta ocupar o espaço disponível. Para corrigir isso colocar flex:none no filho
 
                 ))}                

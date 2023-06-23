@@ -19,7 +19,7 @@ export const InputSearch = styled.input`
         border-color:#F601FF;
     }
 `;
-export const Div = styled.div`
+export const DivForm = styled.form`
     display: none;
 
     @media(min-width: 715px) {
@@ -55,22 +55,17 @@ export const Div = styled.div`
             
         }
     }
-    
-
-
 `;
-export const DivIcon = styled.div`
+export const DivIcon = styled.button`
     position:absolute;
     top:3px; right:10px;
     z-index:10;
     border:none;
     background:transparent;
     outline:none;
-`;
-export const Icon = styled.span`
     font-size: 17px; 
-
-
+    color:#fff;
 `;
+
 
 

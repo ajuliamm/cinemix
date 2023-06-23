@@ -4,6 +4,10 @@ export const Title = styled.p`
     color:#FADCDC;
     font-size: 11px;
     margin-bottom: 20px;
+    &.cardSearch{
+        display: none;
+
+    }
     
 `;
 export const CardMovie = styled.div`
@@ -25,6 +29,12 @@ export const CardMovie = styled.div`
     @media(min-width:600px) {
         width:115px;
         height: 160px;
+    }
+
+    &.cardSearch{
+        width: 21%;
+        height: auto;
+
     }
 `;
 export const ImgMovie = styled.img`
