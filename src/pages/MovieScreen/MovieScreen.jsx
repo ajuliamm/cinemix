@@ -8,8 +8,10 @@ import SectionMovies from "../../components/SectionMovies/SectionMovies";
 
 const MovieScreen = () => {
 
-    const apiKey = process.env.REACT_APP_API_KEY;
-    const urlMovies = process.env.REACT_APP_API_MOVIES;
+    // const apiKey = process.env.REACT_APP_API_KEY;
+    const apiKey = 'api_key=6bebb53b1882bda62ff84352ee9e7d2a'
+    // const urlMovies = process.env.REACT_APP_API_MOVIES;
+    const urlMovies = 'https://api.themoviedb.org/3/movie'
     // const urlImg = 'https://image.tmdb.org/t/p/w500/';
     console.log(apiKey);
     console.log(urlMovies);
