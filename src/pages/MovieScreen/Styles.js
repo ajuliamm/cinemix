@@ -18,6 +18,12 @@ export const H2 = styled.h2`
     @media (min-width: 860px) {
         font-size: 36px;        
     }   
+    @media (min-width: 1230px) {
+        font-size: 50px;        
+    } 
+    @media (min-width: 1700px) {
+        font-size: 60px;        
+    } 
 
 `;
 export const Text = styled.p`
@@ -62,6 +68,12 @@ export const Div = styled.div`
         flex-direction: row ;
         padding: 30px 50px;
     }
+    @media (min-width: 1230px) {
+        padding:30px 70px ;
+    } 
+    @media (min-width: 1700px) {
+        padding: 30px 150px ;
+    }
 `;
 export const BtnArea = styled.div`
     width: 80vw;
@@ -86,7 +98,7 @@ export const MovieArea = styled.div`
         width: 35vw;
     }
 `;
-export const CardMovie = styled.div`
+export const CardMovieStyle = styled.div`
     width: 105px;
     height: 130px;
     background-color: rgb(56, 18, 88, 52%);

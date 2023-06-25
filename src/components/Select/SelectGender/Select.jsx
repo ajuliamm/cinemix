@@ -1,15 +1,13 @@
 import React from "react";
 import { SelectGenderMovies } from "./Styles";
 
-const SelectGenders = () => {
+const SelectGenders = ({onChange}) => {
     return(
         <>
-            <SelectGenderMovies name='genders' >
+            <SelectGenderMovies name='genders' onChange={onChange}>
                 <option value="...">...</option>
-                <option value="romance">Romance</option>
-                <option value="drama">Drama</option>
-                <option value="ficction">Ficção</option>
-                <option value="horror">Terror</option>
+                <option value="topRated">Mais bem avaliados</option>
+                <option value="popular">Mais populares</option>
             </SelectGenderMovies>
         </>
 

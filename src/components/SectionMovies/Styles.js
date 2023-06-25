@@ -16,8 +16,12 @@ export const Title = styled.p`
     color:#FADCDC;
     font-size: 11px;
     margin-bottom: 20px;
+    @media(min-width:600px) {
+        font-size: 13px;
+    }
     
 `;
+
 export const CardMovie = styled.div`
     width:80px;
     height: 110px;   
@@ -56,12 +60,17 @@ export const ImgMovie = styled.img`
 `;
 export const SectionCards = styled.div`
     width:100vw;
-    min-height: 250px;
+    min-height: 210px;
     display: flex;
     gap: 12px;
     overflow-x: auto;
     scroll-behavior: smooth;
     overflow-y: none;
+
+    @media(min-width:400px) {
+        min-height: 33vh;
+        
+    }
 
     &::-webkit-scrollbar{
         display: none;
