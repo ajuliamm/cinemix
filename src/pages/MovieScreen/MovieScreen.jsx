@@ -1,10 +1,10 @@
 import React , { useEffect, useState }from "react";
-import { Container, H2, Text, Main, Div, BtnArea, MovieArea, CardMovie } from "./Styles";
+import { Container, H2, Text, Main, Div, BtnArea, MovieArea, CardMovieStyle } from "./Styles";
 import Header from "../../components/Header/Header";
 import Button from "../../components/Button/Button";
 import SelectGenders from "../../components/Select/SelectGender/Select";
 import SectionMovies from "../../components/SectionMovies/SectionMovies";
-
+import CardMovie from "../../components/CardMovie/CardMovie";
 
 const MovieScreen = () => {
 
@@ -18,6 +18,7 @@ const MovieScreen = () => {
    
     const [moviesTopRated , setMoviesTopRated] = useState([]);
     const [moviesPopular , setMoviesPopular] = useState([]);
+    const [movieSort, setMovieSort] = useState("");
 
     const getMoviesTopRated = async (url) => {
         const resp = await fetch(url);
@@ -31,6 +32,23 @@ const MovieScreen = () => {
         setMoviesPopular(data.results)
         console.log(data);
     }
+    const sortMovie = (moviesToSort) =>{
+        const sort = Math.floor(Math.random() * (moviesToSort.length+1));
+        console.log(sort);
+        setMovieSort(moviesToSort[sort])
+
+
+    }
+    const handleChangeSelect = (event) => {
+        console.log(event.target.value)
+        if(event.target.value === 'popular'){
+            sortMovie(moviesPopular);
+        }
+        else if(event.target.value === 'topRated'){
+            sortMovie(moviesTopRated);
+        }
+    }
+
     useEffect(()=>{
     
         const topRatedUrl = `${urlMovies}/top_rated?${apiKey}&language=pt-BR&page=1`
@@ -49,14 +67,16 @@ const MovieScreen = () => {
                 <Div>
                     <BtnArea>
                         <H2>Separamos os filmes mais bem avaliados para você.</H2>
-                        <Button textBtn="SORTEAR FILME" typeBtn="BtnPink"/>
+                        <Button textBtn="SORTEAR FILME" typeBtn="BtnPink" onClick={()=>sortMovie(moviesTopRated)}/>
                         <Text>Ou escolha a categoria do seu filme</Text>
-                        <SelectGenders/>
+                        <SelectGenders onChange={handleChangeSelect}/>
                     </BtnArea>  
                     <MovieArea>
-                        <CardMovie>
-                            <Text className="movie">?</Text>
-                        </CardMovie>
+                        <CardMovieStyle>
+                            {movieSort === "" 
+                            ? <Text className="movie">?</Text>
+                            : <CardMovie movie={movieSort} typeCard="sortCard"/>}
+                        </CardMovieStyle>
                         
                     </MovieArea>                  
                 </Div>

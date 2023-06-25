@@ -7,10 +7,10 @@ export const Container = styled.div`
     align-items: center;
     padding: 0 30px;
     justify-content: space-between;
+    
     @media(min-width: 715px) {
-        padding: 0 50px;
-            
-        }
+        padding: 0 50px;            
+    }
 `;
 export const LogoNavArea = styled.div`
     display: flex;
