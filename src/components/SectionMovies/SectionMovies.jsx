@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Container, H4, DivBtn, Title, ImgMovie, SectionCards, BtnArrow } from "./Styles";
 import CardMovie from "../CardMovie/CardMovie"
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import Input from "../Input/Input";
 
 const SectionMovies = ({movies, title}) => {
 
@@ -51,6 +52,7 @@ const SectionMovies = ({movies, title}) => {
     //se não haver dados ou esse array estiver vazio retorna null
     return(
         <Container>
+            <Input styles="inputMain"/>
             <H4>{title}</H4>
             <SectionCards ref={carousel}>
               {movies.length === 0 && <p>Carregando...</p>}
