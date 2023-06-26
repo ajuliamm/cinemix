@@ -22,10 +22,10 @@ export const InputSearch = styled.input`
 export const DivForm = styled.form`
     display: none;
 
-    @media(min-width: 715px) {
+    @media(min-width: 570px) {
         display: flex;
         position: relative;
-        width: 300px;
+        width: 200px;
         height: 30px;
         border-radius: 26px;     
         color:#ffffff;
@@ -39,6 +39,14 @@ export const DivForm = styled.form`
         }
 
     }
+    @media (min-width:650px) {
+        width: 248px;
+        
+    }
+    @media (min-width:740) {
+        width: 300px;
+        
+    }
     &.inputMobile{
         display: flex;
         position: relative;
@@ -51,6 +59,30 @@ export const DivForm = styled.form`
         background-color: rgb(14, 25, 31, 40%);
 
         @media(min-width: 715px) {
+            display: none;
+            
+        }
+    }
+    &.inputMain{
+        display: flex;
+        position: relative;
+        width: 100%;
+        height: 35px;
+        border-radius: 26px;     
+        border: 2px solid ;
+        border-color:transparent;
+        color:#F601FF;
+        margin-bottom: 10px;
+        &:hover{
+            border: 2px solid ;
+            border-color:#F601FF;
+            color:#F601FF;
+            background-color: rgb(14, 25, 31, 40%);
+            
+
+        }
+
+        @media(min-width: 570px) {
             display: none;
             
         }

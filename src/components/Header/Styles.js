@@ -15,5 +15,8 @@ export const Container = styled.div`
 export const LogoNavArea = styled.div`
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
+    @media(min-width:361px) {
+        gap: 30px;
+    }
 `;
