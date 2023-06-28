@@ -2,9 +2,9 @@ import React, {useState, useEffect} from "react";
 import { Container, Main, Title, Subtitle,SectionMovie, H3, Text, DivSection} from "./Styles"
 import { useParams } from "react-router-dom";
 //quando preciso acessar o parametro que está intriseco na url
-import { API_KEY, API_DETAILS ,API_MOVIES, API_SEARCH, API_IMG } from "../../API/KeyAPI";
 import Header from "../../components/Header/Header";
 import CardMovie from "../../components/CardMovie/CardMovie";
+import Footer from "../../components/Footer/Footer";
 
 
 const Details = () => {
@@ -23,6 +23,12 @@ const Details = () => {
         setMovie(data);
         console.log(data)
     }
+
+    const formatDate = (dateString) => {
+        const [year, month, day] = dateString.split("-");
+        return `${day}/${month}/${year}`;
+    };
+
 
     useEffect(()=>{
         const detailsFullLink = `${urlDetails}/${id}?${apiKey}&language=pt-BR`;
@@ -43,7 +49,7 @@ const Details = () => {
                 </DivSection>
                 <DivSection className="title">
                     <Title>{movie.title}</Title>
-                    <Text className="dateTime">{movie.release_date} • {movie.runtime}min</Text>
+                    <Text className="dateTime">{formatDate(movie.release_date)} • {movie.runtime}min</Text>
                 </DivSection>
                 <DivSection className="star">
                     <Subtitle>⭐{movie.vote_average.toFixed(1)}</Subtitle>
@@ -60,6 +66,7 @@ const Details = () => {
             </SectionMovie>
             </Main>
             :<p>Carregando...</p>}
+            <Footer/>
         </Container>
     )
         

@@ -3,8 +3,11 @@ import { Container, H3, Main, TextSearch, SectionCards } from "./Styles";
 import CardMovie from "../../components/CardMovie/CardMovie";
 import { useSearchParams } from "react-router-dom";//permite pegar a query string da url e utiliza-la
 import Header from "../../components/Header/Header";
-const Search = () => {
+import Input from "../../components/Input/Input";
+import Footer from "../../components/Footer/Footer";
 
+
+const Search = () => {
     
     const urlSearch = process.env.REACT_APP_API_SEARCH;
     const apiKey = process.env.REACT_APP_API_KEY;
@@ -33,6 +36,7 @@ const Search = () => {
         <Container>
             <Header/>
             <Main>
+            <Input styles="inputMain"/>
             <H3>Resultados para:<TextSearch>{query}</TextSearch></H3>
             <SectionCards>
             {movies.length === 0 && <p>Carregando...</p>}
@@ -43,6 +47,7 @@ const Search = () => {
             ))} 
             </SectionCards>
             </Main>
+            <Footer/>
         </Container>
     )
 }

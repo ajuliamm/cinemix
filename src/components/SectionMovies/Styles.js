@@ -60,17 +60,30 @@ export const ImgMovie = styled.img`
 `;
 export const SectionCards = styled.div`
     width:100vw;
-    min-height: 210px;
+    height: 180px;
     display: flex;
     gap: 12px;
     overflow-x: auto;
     scroll-behavior: smooth;
     overflow-y: none;
 
-    @media(min-width:400px) {
-        min-height: 33vh;
-        
+    @media(min-width:360px) {
+        height: 200px;
+    }    
+    @media(min-width:500px) {
+        height: 210px;
+    } 
+    @media(min-width:600px) {
+        height: 230px;
     }
+    @media(min-width:800px) {
+        height: 260px;
+    }
+    @media(min-width:1000px) {
+        height: 290px;
+    }
+
+    
 
     &::-webkit-scrollbar{
         display: none;
