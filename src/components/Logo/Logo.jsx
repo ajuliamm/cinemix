@@ -1,10 +1,10 @@
 import React from "react";
 import { Image } from "./Styles";
 
-const Logo = ({src}) => {
+const Logo = ({src, style}) => {
     return(
         <>
-            <Image alt="Logo-cinemix" src={src}/>
+            <Image className={style} alt="Logo-cinemix" src={src}/>
         </>
 
     )

@@ -8,6 +8,14 @@ export const SelectGenderMovies = styled.select`
     outline: none;
     border: none;
     padding: 0 10px;
+
+    option{
+        background-color: #361155;
+        color: #fff;
+        
+    }
+    
+    
     @media (min-width: 560px) {        
         width:245px;
     }

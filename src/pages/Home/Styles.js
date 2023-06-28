@@ -5,6 +5,7 @@ background: rgb(60,17,94);
 background: linear-gradient(0deg, rgba(60,17,94,1) 0%, rgba(37,10,75,1) 25%, rgba(3,3,40,1) 48%, rgba(3,3,40,1) 60%, rgba(34,10,68,1) 84%, rgba(60,17,94,1) 100%);
     width: 100vw;
     min-height: 100vh;
+position: relative;
     
 `;
 export const H1 = styled.h1`

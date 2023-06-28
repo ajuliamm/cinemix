@@ -21,11 +21,22 @@ export const Nav = styled.nav`
 
 export const Ul = styled.ul`
 display: flex;
-gap: 25px;
+gap: 0px;
 
 
 `;
 export const Li = styled.li`
+list-style: none;
+background-color: transparent;
+    border-radius: 30px;
+    border: 3px solid transparent;
+    padding: 2px 6px;
+&:hover{
+    background-color: #F601FF;
+    border-radius: 30px;
+    border: 3px solid #F601FF;
+    padding: 2px 6px;
+}
 
 
 

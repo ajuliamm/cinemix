@@ -3,6 +3,7 @@ import { Container, H1, H4, Main, Div} from "./Styles";
 import Header from "../../components/Header/Header";
 import Input from "../../components/Input/Input";
 import ChooseArea from "./components/ChooseArea/ChooseArea";
+import Footer from "../../components/Footer/Footer";
 
 const Home = () => {
     return(
@@ -16,6 +17,7 @@ const Home = () => {
                 </Div>
                 <ChooseArea/>
             </Main>
+            <Footer />
         </Container>
 
     )

@@ -5,7 +5,9 @@ import Button from "../../components/Button/Button";
 import SelectGenders from "../../components/Select/SelectGender/Select";
 import SectionMovies from "../../components/SectionMovies/SectionMovies";
 import CardMovie from "../../components/CardMovie/CardMovie";
+import Input from "../../components/Input/Input";
 import { getMovies } from "../../API/RequisiçãoApi";
+import Footer from "../../components/Footer/Footer";
 
 const MovieScreen = () => {
 
@@ -27,6 +29,7 @@ const MovieScreen = () => {
     const getMoviesTopRated = async (url) => {
         const data = await getMovies(url)
         setMoviesTopRated(data)
+        setValueSelect(data)
     }
 
     const getMoviesPopular = async (url) => {
@@ -50,9 +53,15 @@ const MovieScreen = () => {
     }
 
     const sortMovie = (moviesToSort) =>{
-        const sort = Math.floor(Math.random() * (moviesToSort.length));
-        console.log(sort);
-        setMovieSort(moviesToSort[sort])
+        console.log(moviesToSort);
+        if(moviesToSort.length > 0){
+            const sort = Math.floor(Math.random() * (moviesToSort.length));
+            console.log(sort);
+            setMovieSort(moviesToSort[sort])
+        }
+        else{
+            console.log('carregando')
+        }
     }
     const handleChangeSelect = (event) => {
         console.log(event.target.value)
@@ -76,10 +85,6 @@ const MovieScreen = () => {
             setValueSelect(allMovies);
         }
     }
-
-    useEffect(()=>{
-        setValueSelect(moviesTopRated)
-    },[])
 
     useEffect(()=>{
     
@@ -118,12 +123,14 @@ const MovieScreen = () => {
                         
                     </MovieArea>                  
                 </Div>
+                <Input styles="inputMain"/>
                 <SectionMovies movies={moviesTopRated} title="Mais Bem Avaliados"/>
                 <SectionMovies movies={moviesPopular} title="Mais Populares"/>
                 <SectionMovies movies={moviesKids} title="Animação"/>
                 <SectionMovies movies={moviesAction} title="Ação"/>
                 <SectionMovies movies={moviesComedy} title="Comédia"/>
             </Main>
+            <Footer/>
         </Container>
 
     )
