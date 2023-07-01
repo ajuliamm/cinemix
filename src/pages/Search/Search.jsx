@@ -22,7 +22,7 @@ const Search = () => {
 
     useEffect(()=>{
 
-        const searchFullLink = `${urlSearch}?${apiKey}&query=${query}&include_adult=false&language=pt-BR&page=1`
+        const searchFullLink = `${urlSearch}/multi?${apiKey}&query=${query}&include_adult=false&language=pt-BR&page=1`
         
         const searchMovie = async ( url )=> {
             const resp = await fetch(url);

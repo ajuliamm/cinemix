@@ -86,7 +86,7 @@ export const MovieArea = styled.div`
         width: 35vw;
     }
 `;
-export const CardMovie = styled.div`
+export const CardMovieStyle = styled.div`
     width: 105px;
     height: 130px;
     background-color: rgb(56, 18, 88, 52%);

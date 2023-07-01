@@ -1,17 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import {  CardMovie, Title, ImgMovie } from "./Styles";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
-const SectionMovies = ({movie, typeCard}) => {
+const CardMovieDiv = ({movie, typeCard}) => {
     const navigate = useNavigate();
 
-    const urlImg = 'https://image.tmdb.org/t/p/w500/';
-    const urlDetails = 'https://api.themoviedb.org/3/movie/'
-
-    
-    
-   
+    const urlImg = process.env.REACT_APP_API_IMG;   
 
     return(
         <CardMovie className={typeCard} onClick={()=>navigate(`/movie/${movie.id}`)}>
@@ -20,4 +15,4 @@ const SectionMovies = ({movie, typeCard}) => {
         </CardMovie>
     )
 }
-export default SectionMovies;
+export default CardMovieDiv;
