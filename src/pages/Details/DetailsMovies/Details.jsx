@@ -2,15 +2,15 @@ import React, {useState, useEffect} from "react";
 import { Container, Main, Title, Subtitle,SectionMovie, H3, Text, DivSection} from "./Styles"
 import { useParams } from "react-router-dom";
 //quando preciso acessar o parametro que está intriseco na url
-import Header from "../../components/Header/Header";
-import CardMovie from "../../components/CardMovie/CardMovie";
-import Footer from "../../components/Footer/Footer";
+import Header from "../../../components/Header/Header";
+import CardMovie from "../../../components/CardMovie/CardMovie";
+import Footer from "../../../components/Footer/Footer";
 
 
 const Details = () => {
 
     const apiKey = process.env.REACT_APP_API_KEY;   
-    const urlDetails = process.env.REACT_APP_API_DETAILS;
+    const urlDetails = process.env.REACT_APP_API_BASE;
 
     const {id} = useParams();
     const [movie, setMovie] = useState(null);
@@ -31,7 +31,7 @@ const Details = () => {
 
 
     useEffect(()=>{
-        const detailsFullLink = `${urlDetails}/${id}?${apiKey}&language=pt-BR`;
+        const detailsFullLink = `${urlDetails}/movie/${id}?${apiKey}&language=pt-BR`;
         getDetailsMovie(detailsFullLink);
     }, []);
 
