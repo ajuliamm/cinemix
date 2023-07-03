@@ -28,13 +28,29 @@ Nesse projeto foi proposto criar um produto que consuma uma API de filmes. Entã
 
 </div>
 
-### Layout
+***
+
+### Definição de Produto
+
+O Cinemax é uma aplicação web que atende a necessidade de pessoas que não querem perder tempo para decidir filme/série que vão assistir. Então o site traz um sorteador onde é possível escolher a categoria desejada. Além disso é possível explorar e descobrir informações sobre filmes e séries. 
+
+***
+
+### Histórias de Usuários
+1)Eu como usuário quero pesquisar por filmes/séries pelo nome;<br>
+2)Eu como usuário quero ver informações como: Sinopse, avaliação, nome do filme, imagem e gênero do filmes/séries escolhidos;<br>
+3)Eu como usuário quero sortear qual filme/série que o site vai sortear para mim. 
+
+***
+
+### Protótipos e Responsividade
 
 A aplicação é responsiva para todos os tamanhos de tela. A adaptação do sistema preza pela experiência dos usuários e está apta para atender as mais diversas necessidades.
 <div align="center">
-<!--   <img width="400" src="https://github.com/ajuliamm/heaven-burger/assets/30864314/47f81b5f-5345-4266-9e8a-9adc13a284fb"/>
-  <img width="400" src="https://github.com/ajuliamm/heaven-burger/assets/30864314/8a22d553-4aff-4347-be24-b9a8c2c840cd"/>
-  <img width="400" src="https://github.com/ajuliamm/heaven-burger/assets/30864314/5050b361-5c07-45ef-8ba0-d9ee7880482f"/> -->
+  <img width="400" src="https://github.com/ajuliamm/movie-challenge/assets/93016620/e99f8fbd-22f8-456f-8ec5-69478ff8140d"/>
+  <img width="215" src="https://github.com/ajuliamm/movie-challenge/assets/93016620/f7dab887-e919-47a1-9e72-af3369a376e4"/>  
+  <img width="140" src="https://github.com/ajuliamm/movie-challenge/assets/93016620/89b2a51b-30ba-44cc-aed1-97fe31d158ea"/>
+  
 </div>
  
 
