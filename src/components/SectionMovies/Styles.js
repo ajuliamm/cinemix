@@ -98,7 +98,7 @@ export const DivBtn = styled.div`
     gap: 10px;
     padding: 10px;
     position: absolute;
-    top:70px;
+    top:40%;
 `;
 
 export const BtnArrow = styled.button`

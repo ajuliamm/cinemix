@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, {  useRef } from "react";
 import { Container, H4, DivBtn, SectionCards, BtnArrow } from "./Styles";
 import CardMovie from "../CardMovie/CardMovie"
 import 'bootstrap-icons/font/bootstrap-icons.css';
@@ -9,7 +9,7 @@ const SectionMovies = ({movies, title}) => {
 
     const handleLeftClick = (e)=>{
         e.preventDefault();
-        console.log(carousel.current.offsetWidth);
+        // console.log(carousel.current.offsetWidth);
         carousel.current.scrollLeft -= carousel.current.offsetWidth;
     }
     const handleRightClick = (e)=>{

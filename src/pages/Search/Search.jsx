@@ -15,7 +15,7 @@ const Search = () => {
     const [searchParams] = useSearchParams();
 
     const query = searchParams.get("q")
-    console.log(query)
+  
     // dessa forma consigo pegar qqr parametro que está na url, exemplo se pegar o parametro "q" vai receber o valor dele. 
 
     const[movies, setMovies] = useState([]);
@@ -27,11 +27,10 @@ const Search = () => {
         const searchMovie = async ( url )=> {
             const resp = await fetch(url);
             const data = await resp.json();
-            console.log(data);
             setMovies(data.results);
         }
         searchMovie(searchFullLink);
-    },[query])
+    },[query, apiKey, urlSearch])
     return (
         <Container>
             <Header/>

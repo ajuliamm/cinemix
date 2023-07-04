@@ -1,5 +1,5 @@
 import React , { useEffect, useState }from "react";
-import { Container, H2, Text, Main, Div, BtnArea, MovieArea, CardMovieStyle } from "./Styles";
+import { Container, H2, Text, Main, Div, BtnArea, MovieArea, CardMovieStyle, DivLoading, Loading} from "./Styles";
 import Header from "../../components/Header/Header";
 import Button from "../../components/Button/Button";
 import SelectGenders from "../../components/Select/SelectGender/Select";
@@ -14,9 +14,6 @@ const MovieScreen = () => {
     const apiKey = process.env.REACT_APP_API_KEY;
     const urlMovies = process.env.REACT_APP_API_MOVIES;
     const urlBase = process.env.REACT_APP_API_BASE;
-
-    console.log(apiKey);
-    console.log(urlMovies);
    
     const [moviesTopRated , setMoviesTopRated] = useState([]);
     const [moviesPopular , setMoviesPopular] = useState([]);
@@ -25,6 +22,7 @@ const MovieScreen = () => {
     const [moviesComedy, setMoviesComedy ] = useState([]);
     const [movieSort, setMovieSort] = useState("");
     const [valueSelect, setValueSelect] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const getMoviesTopRated = async (url) => {
         const data = await getMovies(url)
@@ -53,18 +51,16 @@ const MovieScreen = () => {
     }
 
     const sortMovie = (moviesToSort) =>{
-        console.log(moviesToSort);
+        setLoading(true)
         if(moviesToSort.length > 0){
             const sort = Math.floor(Math.random() * (moviesToSort.length));
-            console.log(sort);
             setMovieSort(moviesToSort[sort])
-        }
-        else{
-            console.log('carregando')
+            setTimeout(() => {
+                setLoading(false)
+            }, 3000);
         }
     }
     const handleChangeSelect = (event) => {
-        console.log(event.target.value)
         if(event.target.value === 'popular'){
             setValueSelect(moviesPopular);
         }
@@ -101,13 +97,18 @@ const MovieScreen = () => {
         getMoviesComedy(comedy);
 
 
-    },[apiKey,urlMovies])
+    },[apiKey,urlMovies, urlBase])
    
     return(
         <Container>
             <Header/>
             <Main>
                 <Div>
+                    {loading ?
+                    <DivLoading>
+                        <Loading></Loading>
+                    </DivLoading>
+                    : <>
                     <BtnArea>
                         <H2>Separamos os filmes mais bem avaliados para você.</H2>
                         <Button textBtn="SORTEAR FILME" typeBtn="BtnPink" onClick={()=>sortMovie(valueSelect)}/>
@@ -121,7 +122,8 @@ const MovieScreen = () => {
                             : <CardMovie movie={movieSort} typeCard="sortCard"/>}
                         </CardMovieStyle>
                         
-                    </MovieArea>                  
+                    </MovieArea>   
+                    </>}               
                 </Div>
                 <Input styles="inputMain"/>
                 <SectionMovies movies={moviesTopRated} title="Mais Bem Avaliados"/>
@@ -131,6 +133,7 @@ const MovieScreen = () => {
                 <SectionMovies movies={moviesComedy} title="Comédia"/>
             </Main>
             <Footer/>
+                        
         </Container>
 
     )

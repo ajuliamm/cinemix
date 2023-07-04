@@ -19,9 +19,7 @@ const Details = () => {
 
         const resp = await fetch(url);
         const data = await resp.json();
-
         setSerie(data);
-        console.log(data)
     }
 
     const formatDate = (dateString) => {
@@ -33,7 +31,7 @@ const Details = () => {
     useEffect(() => {
         const detailsFullLink = `${urlDetails}/tv/${id}?${apiKey}&language=pt-BR`;
         getDetailsSerie(detailsFullLink);
-    }, []);
+    }, [urlDetails, id, apiKey]);
 
     return (
         <Container>
