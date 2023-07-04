@@ -9,7 +9,7 @@ const SectionSeries = ({series, title}) => {
 
     const handleLeftClick = (e)=>{
         e.preventDefault();
-        console.log(carousel.current.offsetWidth);
+        // console.log(carousel.current.offsetWidth);
         carousel.current.scrollLeft -= carousel.current.offsetWidth;
     }
     const handleRightClick = (e)=>{

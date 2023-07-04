@@ -63,7 +63,9 @@ export const Div = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column ;
+    justify-content: center;
     gap:30px;
+    position: relative;
     @media (min-width: 560px) {    
         flex-direction: row ;
         padding: 30px 50px;
@@ -111,4 +113,38 @@ export const CardMovieStyle = styled.div`
         height: 231px;
     }
 `;
+export const DivLoading = styled.div`
+    width: 100vw;
+    height: 100%;
+    background-color:transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    
+`;
+
+export const Loading = styled.div`
+    width: 70px;
+    height: 70px;
+    background-color: transparent;
+    border: 17px solid #B535F6;
+    border-top: 17px solid transparent;
+    border-radius: 50%;
+
+    animation: loading 1s linear infinite;
+
+    @keyframes loading {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+      
+    }
+
+`;
+
+
 

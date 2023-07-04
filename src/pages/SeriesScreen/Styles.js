@@ -18,6 +18,12 @@ export const H2 = styled.h2`
     @media (min-width: 860px) {
         font-size: 36px;        
     }   
+    @media (min-width: 1230px) {
+        font-size: 50px;        
+    } 
+    @media (min-width: 1700px) {
+        font-size: 60px;        
+    }    
 
 `;
 export const Text = styled.p`
@@ -46,7 +52,7 @@ export const Text = styled.p`
 export const Main = styled.main`
     display: flex;
     flex-direction: column;
-    gap:85px;
+    gap:20px;
 
 `;
 export const Div = styled.div`
@@ -56,11 +62,18 @@ export const Div = styled.div`
     padding: 30px 70px ;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column ;
     gap:30px;
     @media (min-width: 560px) {    
         flex-direction: row ;
         padding: 30px 50px;
+    }
+    @media (min-width: 1230px) {
+        padding:30px 70px ;
+    } 
+    @media (min-width: 1700px) {
+        padding: 30px 150px ;
     }
 `;
 export const BtnArea = styled.div`
@@ -98,5 +111,36 @@ export const CardMovieStyle = styled.div`
         width: 188px;
         height: 231px;
     }
+`;
+export const DivLoading = styled.div`
+    width: 100vw;
+    height: 100%;
+    background-color:transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    
+`;
+export const Loading = styled.div`
+    width: 70px;
+    height: 70px;
+    background-color: transparent;
+    border: 17px solid #B535F6;
+    border-top: 17px solid transparent;
+    border-radius: 50%;
+
+    animation: loading 1s linear infinite;
+
+    @keyframes loading {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+      
+    }
+
 `;
 

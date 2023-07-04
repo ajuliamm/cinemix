@@ -11,6 +11,7 @@ export const Container = styled.footer`
     padding: 20px 0 35px 0;
     opacity: .5;
     margin-top: 80px;
+    
 
     &.absolute{
         position: absolute;

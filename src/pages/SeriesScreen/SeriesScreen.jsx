@@ -1,5 +1,5 @@
 import React , { useEffect, useState }from "react";
-import { Container, H2, Text, Main, Div, BtnArea, MovieArea, CardMovieStyle } from "./Styles";
+import { Container, H2, Text, Main, Div, BtnArea, MovieArea, CardMovieStyle, DivLoading, Loading } from "./Styles";
 import Header from "../../components/Header/Header";
 import Button from "../../components/Button/Button";
 import SelectGenders from "../../components/Select/SelectGender/Select";
@@ -12,9 +12,6 @@ const SeriesScreen = () => {
 
     const apiKey = process.env.REACT_APP_API_KEY;
     const urlBase = process.env.REACT_APP_API_BASE;
-
-    console.log(apiKey);
-    console.log(urlBase);
    
     const [seriesTopRated , setSeriesTopRated] = useState([]);
     const [seriesPopular , setSeriesPopular] = useState([]);
@@ -23,18 +20,17 @@ const SeriesScreen = () => {
     const [seriesComedy, setSeriesComedy ] = useState([]);
     const [movieSort, setMovieSort] = useState("");
     const [valueSelect, setValueSelect] = useState("");
+    const [loading, setLoading] = useState(false);
 
 
     const getSeriesTopRated = async (url) => {
         const data = await getMovies(url);
         setSeriesTopRated(data);
-        console.log(data);
         setValueSelect(data)
     }
     const getseriesPopular = async (url) => {
         const data = await getMovies(url)
         setSeriesPopular(data)
-        console.log(data);
     }
     const getSeriesKids = async (url) => {
         const data = await getMovies(url)
@@ -53,7 +49,6 @@ const SeriesScreen = () => {
     useEffect(()=>{
     
         const topRatedUrl = `${urlBase}/tv/top_rated?${apiKey}&language=pt-BR&page=1`
-        console.log(topRatedUrl)
         const popularUrl = `${urlBase}/tv/popular?${apiKey}&language=pt-BR&page=1`
         getSeriesTopRated(topRatedUrl);
         getseriesPopular(popularUrl);
@@ -67,22 +62,21 @@ const SeriesScreen = () => {
         getSeriesComedy(comedy);
 
 
-    },[apiKey])
+    },[apiKey, urlBase])
 
     const sortSerie = (serieToSort) =>{
-        console.log(serieToSort);
+        setLoading(true)
+        
         if(serieToSort.length > 0){
             const sort = Math.floor(Math.random() * (serieToSort.length));
-            console.log(sort);
             setMovieSort(serieToSort[sort])
-        }
-        else{
-            console.log('carregando')
+            setTimeout(() => {
+                setLoading(false)
+            }, 3000);
         }
     }
 
     const handleChangeSelect = (event) => {
-        console.log(event.target.value)
         if(event.target.value === 'popular'){
             setValueSelect(seriesPopular);
         }
@@ -110,6 +104,11 @@ const SeriesScreen = () => {
             <Header/>
             <Main>
                 <Div>
+                {loading ?
+                    <DivLoading>
+                        <Loading></Loading>
+                    </DivLoading>
+                    : <>
                     <BtnArea>
                         <H2>Separamos as séries mais bem avaliados para você.</H2>
                         <Button textBtn="SORTEAR SÉRIE" typeBtn="BtnPink" onClick={()=>sortSerie(valueSelect)}/>
@@ -123,8 +122,10 @@ const SeriesScreen = () => {
                             : <CardSerie serie={movieSort} typeCard="sortCard"/>}
                         </CardMovieStyle>
                         
-                    </MovieArea>                  
+                    </MovieArea>  
+                    </>}                
                 </Div>   
+                <Input styles="inputMain"/>
                 <SectionSeries series={seriesTopRated} title="Mais Bem Avaliados"/>
                 <SectionSeries series={seriesPopular} title="Mais Populares"/>
                 <SectionSeries series={seriesKids} title="Animação"/>
