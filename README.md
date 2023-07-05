@@ -68,7 +68,7 @@ A aplicação é responsiva para todos os tamanhos de tela. A adaptação do sis
 
 ## Considerações Gerais 
 - A aplicação foi construída utilizando React e Styled Components;
-- Foi utilizada a API TMDB para obeter informações dos filmes e séries;
+- Foi utilizada a API TMDB para obter informações dos filmes e séries;
 - Será feito testes de usabilidade para melhorar a experiência do usuário;
 - Serão implementados testes utilizando jest e testing-library para verificar a correta funcionalidade das funções e renderização dos componentes.  
 
